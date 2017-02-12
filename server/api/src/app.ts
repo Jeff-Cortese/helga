@@ -14,5 +14,6 @@ app.use(serverlessMiddleware.eventContext());
 
 app.get('/yo', (req, res) => res.json({ name: 'hello jeff' }));
 app.get('/yo/:myParam', (req, res) => res.json({ parameter: req.params.myParam }));
+app.get('/myasync', (req, res) => new Promise((resolve) => resolve(res.json('yay async!'))));
 
-export = app
+export = app;
