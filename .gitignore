@@ -2,9 +2,9 @@ logs
 *.log
 npm-debug.log*
 build/Release
-node_modules
+*/**/node_modules
 .npm
 .node_repl_history
 .idea
-.compiled
-.serverless
+*/**/.compiled
+*/**/.serverless
