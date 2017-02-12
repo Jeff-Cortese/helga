@@ -1,0 +1,18 @@
+service: helga
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  region: us-west-2
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
+          request:
+            passThrough: WHEN_NO_MATCH
