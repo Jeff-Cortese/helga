@@ -1,6 +1,5 @@
 'use strict';
 
-//import * as path from 'path';
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
@@ -13,9 +12,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(serverlessMiddleware.eventContext());
 
-
 app.get('/yo', (req, res) => {
   return res.json({name: 'hello jeff'});
+});
+
+app.get('/yo/:myParam', (req, res) => {
+  return res.json({parameter: req.params.myParam});
 });
 
 export = app
